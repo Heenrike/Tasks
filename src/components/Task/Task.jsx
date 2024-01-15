@@ -1,26 +1,62 @@
-import React, { useEffect, useState } from 'react'
-
-function Task() {
+import React, { useEffect, useRef, useState } from 'react'
+import { IoAdd } from "react-icons/io5";
+import { SlOptions } from "react-icons/sl";
+import "./Task.css"
+import Modal from '../Modal/Modal';
+function Task({ index, setCheck, tasks, setTasks }) {
   const [input, setInput] = useState(true)
+  const [modal, modalStats] = useState()
   const [value, setValue] = useState("")
+
   const [task, setTask] = useState("")
 
-  function handleCLick(){
+  const refInput = useRef()
+
+  function handleModal () {
+      <Modal/>
+
+  }
+
+  function handleCLick() {
+
     setInput(false)
+
+    if (value === "") {
+      const newTasks = tasks.filter((_, i) => i !== index);
+      setTasks(newTasks);
+      console.log(newTasks);
+    }
+
+    setCheck(true)
     setTask(value)
   }
 
+  useEffect(() => {
+    refInput.current.focus()
+    setCheck(false)
+
+  }, [setCheck])
+
   return (
-    <div>
+    <div className='containerTask'>
       {
         input && <>
-          <input onChange={(e) => setValue(e.target.value)} value={value} type="text" />
-          <button onClick={handleCLick}>Add</button>
+          <input className='input' ref={refInput} onChange={(e) => setValue(e.target.value)} value={value} type="text" />
+          <button onClick={handleCLick} className="btn"><IoAdd /></button>
         </>
       }
-  
-      <p>{task}</p>
- 
+      {
+        task !== "" && (
+          <div className='task'>
+            <p style={{ padding: "0, 20px" }}>{task} </p>
+            <button className='options' onClick={handleModal} > <SlOptions /> </button>
+          </div>
+        )
+
+      }
+
+
+
     </div>
   )
 }
