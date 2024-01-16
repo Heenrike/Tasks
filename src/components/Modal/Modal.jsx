@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
-
+import { RxExit } from "react-icons/rx";
 import "./Modal.css"
-function Modal() {
+function Modal({setModalOpen}) {
 
-  console.log("Modal")
 
 return (
   <div className='modal'> 
-   <h1>test</h1>
+  <div className='btn'>
+  <button className='btnExit'><RxExit /></button> 
+
+  </div>
   </div>
 )
 }

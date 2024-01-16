@@ -6,8 +6,8 @@ const App = () => {
   const [check, setCheck] = useState(true)
 
   function handlerClick() {
-  
-    if(check)  setTasks([...tasks, <Task />]);
+
+    if (check) setTasks([...tasks, <Task />]);
   }
 
 
@@ -25,7 +25,7 @@ const App = () => {
           {tasks.map((task, index) => (
 
             <div key={index} className="task">
-              <Task setTasks={setTasks} setCheck={setCheck} tasks={tasks} index={index}/>
+              <Task setTasks={setTasks} setCheck={setCheck} tasks={tasks} index={index} />
             </div>
           ))}
         </div>
