@@ -55,7 +55,7 @@ function Task({ index, setCheck, tasks, setTasks }) {
 
       }
       {
-        modalOpen && <div className='modal'><Modal setModalOpen={setModalOpen} /></div>
+        modalOpen && <div className='modal'><Modal setModalOpen={setModalOpen} task={task} /></div>
 
       }
 
