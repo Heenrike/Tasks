@@ -7,13 +7,13 @@ function Task({ index, setCheck, tasks, setTasks }) {
   const [input, setInput] = useState(true)
   const [modal, modalStats] = useState()
   const [value, setValue] = useState("")
-  const   [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   const [task, setTask] = useState("")
 
   const refInput = useRef()
 
   function handleModal() {
-   setModalOpen(true)
+    setModalOpen(true)
 
   }
 
@@ -54,9 +54,10 @@ function Task({ index, setCheck, tasks, setTasks }) {
         )
 
       }
- {
-  modalOpen && <Modal setModalOpen={setModalOpen}/>
- }
+      {
+        modalOpen && <div className='modal'><Modal setModalOpen={setModalOpen} /></div>
+
+      }
 
 
     </div>

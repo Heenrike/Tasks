@@ -9,6 +9,8 @@
   height: 300px;
   color: white;
   box-sizing: border-box;
+  animation: modal-animation;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .btnExit {
@@ -26,4 +28,18 @@
   align-items: start;
   justify-content: end;
   cursor: auto; 
+}
+
+
+.modal{
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
