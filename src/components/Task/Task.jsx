@@ -46,16 +46,17 @@ function Task({ index, setCheck, tasks, setTasks }) {
         </>
       }
       {
-        task !== "" && (
+        task !== ""  && (
           <div className='task'>
             <p style={{ padding: "0, 20px" }}>{task} </p>
+            
             <button className='options' onClick={handleModal} > <SlOptions /> </button>
           </div>
         )
 
       }
       {
-        modalOpen && <div className='modal'><Modal setModalOpen={setModalOpen} task={task} /></div>
+        modalOpen &&  <div className='modal'><Modal setModalOpen={setModalOpen} task={task} setTasks={setTasks} setTask={setTask} index={index} tasks={tasks} /></div>
 
       }
 
